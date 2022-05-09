@@ -1,0 +1,103 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.hyper:hover {
+  cursor: pointer;
+}
+
+body {
+  font-family: "Exo2", sans-serif;
+  background-color: #f2f2f2;
+}
+body .mainWrapper {
+  display: flex;
+}
+body .mainWrapper .postWrapper {
+  padding: 1em;
+  width: 60%;
+}
+body .mainWrapper .postWrapper .postItem {
+  background: #ffffff;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  width: 100%;
+}
+body .mainWrapper .postWrapper .postItem h2 {
+  margin: 0;
+  padding: 15px;
+  font-weight: 300;
+}
+body .mainWrapper .postWrapper .postItem p:last-of-type {
+  padding-left: 15px;
+}
+body .mainWrapper .postWrapper .postItem .comReveal::before {
+  content: "⦿";
+  color: gray;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+body .mainWrapper .postWrapper .postItem a {
+  color: brown;
+  text-decoration: none;
+  padding-left: 15px;
+}
+body .mainWrapper .postWrapper .postItem .comReveal {
+  display: inline;
+  color: brown;
+}
+body .mainWrapper .postWrapper .commentsWrapper br {
+  display: none;
+}
+body .mainWrapper .postWrapper .commentsWrapper div {
+  padding: 0.5em;
+  border-top: 1px solid rgb(200, 200, 200);
+  width: 100%;
+}
+body .mainWrapper .postWrapper .commentsWrapper div h3 {
+  margin: 0;
+  padding-left: 15px;
+}
+body .mainWrapper .postWrapper .commentsWrapper div p:first-of-type::before {
+  background-image: url("userImg.png");
+  background-repeat: no-repeat;
+  background-size: 60px 60px;
+  vertical-align: baseline;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  content: "";
+}
+body .mainWrapper .postWrapper .commentsWrapper div p:last-of-type {
+  background-color: rgba(119, 3, 3, 0.178);
+  padding: 1em;
+  border-radius: 5px;
+}
+body .mainWrapper .albumsWrapper {
+  padding: 1em;
+  width: 40%;
+}
+body .mainWrapper .albumsWrapper .albumItem {
+  display: flex;
+}
+body .mainWrapper .albumsWrapper div {
+  background: #ffffff;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  width: 100%;
+}
+body .mainWrapper .albumsWrapper div h2 {
+  font-weight: 300;
+  margin: 0;
+}
+body .mainWrapper .albumsWrapper div h4 {
+  padding-left: 15px;
+  padding-top: 5px;
+  margin: 0;
+  font-weight: 300;
+  color: brown;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.2.2/photoswipe.css" integrity="sha512-aYZebRqOKTENn+6dnGG8LESiKfRv+2Oi1UTr/u47p0DKdYCih17xTP+/MrTzDPTSvdpSgTwzp5aB3QfO1I+mEA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <script type="module">
+
+        import PhotoSwipeLightbox from './node_modules/photoswipe/dist/photoswipe-lightbox.esm.js';
+        const lightbox = new PhotoSwipeLightbox({
+          gallery: '#my-gallery',
+          children: 'a',
+          pswpModule: () => import('photoswipe/dist/photoswipe.esm.js')
+        });
+        lightbox.init();
+        </script>
+    <script src="./album.js"></script>
+</body>
+</html>

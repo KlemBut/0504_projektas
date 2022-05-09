@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap");
+.hyper:hover{
+  cursor: pointer;
+}
+body {
+  font-family: "Exo2", sans-serif;
+  background-color: #f2f2f2;
+  .mainWrapper {
+    display: flex;
+    .postWrapper {
+      padding: 1em;
+      width: 60%;
+      .postItem {
+        background: #ffffff;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        width: 100%;
+        h2 {
+          margin: 0;
+          padding: 15px;
+          font-weight: 300;
+        }
+        p:last-of-type {
+          padding-left: 15px;
+        }
+        .comReveal::before {
+          content: "\29BF";
+          color: gray;
+          margin-left: 0.5em;
+          margin-right: 0.5em;
+        }
+        a {
+          color: brown;
+          text-decoration: none;
+          padding-left: 15px;
+        }
+        .comReveal {
+          display: inline;
+          color: brown;
+        }
+      }
+      .commentsWrapper {
+        br {
+          display: none;
+        }
+        div {
+          padding: 0.5em;
+          border-top: 1px solid rgb(200, 200, 200);
+          width: 100%;
+          h3 {
+            margin: 0;
+            padding-left: 15px;
+          }
+          p:first-of-type::before {
+            background-image: url("userImg.png");
+            background-repeat: no-repeat;
+            background-size: 60px 60px;
+            vertical-align: baseline;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            content: "";
+          }
+
+          p:last-of-type {
+            background-color: rgba(119, 3, 3, 0.178);
+            padding: 1em;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+    .albumsWrapper {
+        padding: 1em;
+        width: 40%;
+        .albumItem{
+          display: flex;
+        }
+        div {
+            background: #ffffff;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            width: 100%;
+            h2{
+              font-weight: 300;
+              margin: 0;
+            }
+            h4 {
+              padding-left: 15px;
+              padding-top: 5px;
+              margin: 0;
+              font-weight: 300;
+              color: brown;
+            }
+      }
+    }
+  }
+}
