@@ -27,7 +27,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts?_limit=11`)
           let author = document.createElement(`a`);
           author.setAttribute(
             `href`,
-            `/JS/0504_projektas/user/user.html?userId=${user.id}`
+            `./user/user.html?userId=${user.id}`
           );
           author.textContent = `Created by: ${user.name}`;
           let comms = document.createElement(`p`);
