@@ -5,10 +5,12 @@ let userId = urlParams.get(`userId`)
 let mainWrapper = document.createElement(`div`);
 mainWrapper.classList.add(`mainWrapper`);
 document.querySelector(`body`).prepend(mainWrapper);
+
+//authors main info card
+
 fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
   .then((r) => r.json())
   .then((users) => {
-    // users.map(user => {
     let userItem = document.createElement("div");
     let addressItem = document.createElement("div");
     let contactsItem = document.createElement("div");
@@ -34,12 +36,13 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
                                         </ul>`;
     contactsItem.innerHTML = `<h4>Contacts:</h4>
                                         <ul>
-                                        <li>Email: <a href="Ė{users.email}">${users.email}</a></li>
+                                        <li>Email: <a href="${users.email}">${users.email}</a></li>
                                         <li>Phone: <a href="${users.phone}">${users.phone}</a></li>
                                         <li>Web adress: <a href="${users.website}">${users.website}</a></li>
                                         <li>Company: "${users.company.name}"</li>
                                         </ul>`;
     console.log(users);
+
     addressItem.addEventListener(`click`, (e) => {
       window.open(
           `https://google.com/maps/search/${users.address.geo.lat} ${users.address.geo.lng} `,
@@ -48,7 +51,9 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
     });
 
     userItem.append(name, profilePic ,username, addressItem, contactsItem);
-    // })
+
+//fetch to get posts for specific user
+
     fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
       .then((r) => r.json())
       .then((posts) => {
@@ -70,6 +75,9 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
           main.textContent = body;
           postElement.append(name, main);
         });
+    
+// fetch to get link to user created albums
+
         fetch(`https://jsonplaceholder.typicode.com/users/${userId}/albums`)
           .then((r) => r.json())
           .then((albums) => {

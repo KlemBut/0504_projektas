@@ -1,16 +1,21 @@
+let queryParams = window.location.search;
+let urlParams = new URLSearchParams(queryParams);
+let postId = urlParams.get(`post-id`)
+
 let mainWrapper = document.createElement(`div`)
 mainWrapper.classList.add(`mainWrapper`)
 document.querySelector('body').append(mainWrapper);
-// Fetch main post list
-fetch(`https://jsonplaceholder.typicode.com/posts?_limit=11`)
-  .then((res) => res.json())
-  .then((posts) => {
-    console.log(posts);
+
+console.log(postId)
+fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+.then(r => r.json())
+.then(post => {
+    console.log(post)
     let postsWrapper = document.createElement(`div`);
     postsWrapper.classList.add(`postWrapper`);
     mainWrapper.prepend(postsWrapper);
 
-    posts.map((post) => {
+
       let title = upCase(post.title);
       let body = upCase(post.body);
       let userId = post.userId;
@@ -26,20 +31,26 @@ fetch(`https://jsonplaceholder.typicode.com/posts?_limit=11`)
           let name = document.createElement(`h2`);
           name.textContent = title;
           let main = document.createElement(`p`);
-          main.textContent = body;
+          for(i = 0; i < 10; i++){
+              main.textContent += `${body}. `;
+          }
+
+          let otherPosts = document.createElement('a');
+          otherPosts.textContent = `Other posts by the author`
+          otherPosts.setAttribute(`href`, `https://jsonplaceholder.typicode.com/users/${userId}/posts`)
 
 //link for user id to lead to user page
 
           let author = document.createElement(`a`);
           author.setAttribute(
             `href`,
-            `./user/user.html?userId=${user.id}`
+            `../user/user.html?userId=${user.id}`
           );
           author.textContent = `Created by: ${user.name}`;
           let comms = document.createElement(`p`);
           comms.textContent = `Comments`;
           comms.classList.add(`comReveal`);
-          postElement.append(name, author, comms, main);
+          postElement.append(name, author, otherPosts, comms, main);
 
 // link for specific post
 
@@ -84,67 +95,13 @@ fetch(`https://jsonplaceholder.typicode.com/posts?_limit=11`)
             });
         });
       postsWrapper.prepend(postElement);
-    });
+
   });
 
-//sidebar with album list
 
-fetch(`https://jsonplaceholder.typicode.com/albums?_limit=11`)
-  .then((r) => r.json())
-  .then((albums) => {
-      let albumsWrapper = document.createElement('div')
-      
-      albumsWrapper.classList.add(`albumsWrapper`)
-      mainWrapper.append(albumsWrapper)
-    albums.map((album) => {
-      let albumItem = document.createElement('div');
-      albumItem.classList.add(`albumItem`)
-      albumsWrapper.append(albumItem)
-      let albumTitle = document.createElement('h2');
-      let albumTextWrapper = document.createElement('div')
-      albumItem.append(albumTextWrapper)
-      
-      albumTitle.innerText = upCase(album.title)
-      albumTextWrapper.append(albumTitle)
-
-// link for specific album
-
-      albumTitle.addEventListener(`click`, (e) => {
-        window
-          .open(
-            `./album/album.html?album-id=${album.id}`,
-            "_blank"
-          )
-          .focus();
-      });
-      albumTitle.classList.add(`hyper`)
-
-// getting specific album id
-
-      fetch(`https://jsonplaceholder.typicode.com/users/${album.userId}`)
-        .then(r => r.json())
-            .then(albumAuthor => {
-                let authorName = document.createElement(`h4`)
-                authorName.textContent = `Created by ${albumAuthor.name}`
-                albumTextWrapper.append(authorName)
-
-//thumbnail for the album
-
-                fetch(`https://jsonplaceholder.typicode.com/albums/${album.id}/photos?_limit=1`)
-                .then(r => r.json())
-                    .then(pics=>{
-                        pics.map(pic => {
-                            console.log(pic);
-                            let thumbnail = document.createElement(`img`)
-                            thumbnail.setAttribute(`src`, `${pic.thumbnailUrl}`)
-                            albumItem.append(thumbnail)
-                        })
-                    })
-            })
-    });
-  });
 
 //Capitalize first letter,
 function upCase(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  
