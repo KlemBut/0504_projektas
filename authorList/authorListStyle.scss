@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap");
+
+.hyper:hover{
+  cursor: pointer;
+}
+body{
+    font-family: "Exo2", sans-serif;
+    background-color: #f2f2f2;
+    header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    header{
+        background-color: #ffffff;
+        margin: 1em 1em 1em 1em;
+        padding: 15px;
+        ul{
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            margin: 0;
+            padding:0;
+            li{
+                a{
+                text-decoration: none;
+                color: brown;
+                font-size: 24px;
+        }
+      }
+    }
+  }
+  div{
+    background-color: #ffffff;
+    padding: 1em;
+    margin: 1em;
+    
+  a{
+    text-decoration: none;
+    h2{
+        text-decoration: none;
+        // border: 1px solid black;
+        margin: 10px 0 10px 0;
+        padding: 5px 0 5px 10px;
+        background-color:#b7b7b7cc;
+        border-radius: 20px 0 0 20px;
+        width: 50%;
+    }
+  }
+  h2:before{
+      content: "\1F9D3";
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+    }
+    p{
+        display: inline;
+    }
+}
+}

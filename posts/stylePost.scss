@@ -58,9 +58,16 @@ body {
           margin-left: 0.5em;
           margin-right: 0.5em;
         }
-        a:first-of-type{
-          color: black;
+        a:last-of-type:before {
+          content: "\29BF";
+          color: gray;
+          margin-left: 0.5em;
+          margin-right: 0.5em;
         }
+        a:last-of-type {
+          padding: 0;
+        }
+        
         a {
           color: brown;
           text-decoration: none;

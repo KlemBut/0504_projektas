@@ -62,8 +62,14 @@ body .mainWrapper .postWrapper .postItem .comReveal::before {
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
-body .mainWrapper .postWrapper .postItem a:first-of-type {
-  color: black;
+body .mainWrapper .postWrapper .postItem a:last-of-type:before {
+  content: "⦿";
+  color: gray;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+body .mainWrapper .postWrapper .postItem a:last-of-type {
+  padding: 0;
 }
 body .mainWrapper .postWrapper .postItem a {
   color: brown;
@@ -124,4 +130,4 @@ body .mainWrapper .albumsWrapper div h4 {
   margin: 0;
   font-weight: 300;
   color: brown;
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=stylePost.css.map */

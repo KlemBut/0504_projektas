@@ -23,23 +23,28 @@ fetch(`https://jsonplaceholder.typicode.com/posts?_limit=11`)
       fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
         .then((r) => r.json())
         .then((user) => {
+          let nameLink = document.createElement(`a`)
           let name = document.createElement(`h2`);
-          name.textContent = title;
           let main = document.createElement(`p`);
+          let author = document.createElement(`a`);
+          let comms = document.createElement(`p`);
+
+          name.textContent = title;
           main.textContent = body;
+          author.textContent = `Created by: ${user.name}`;
+          comms.textContent = `Comments`;
+          
+          comms.classList.add(`comReveal`);
 
 //link for user id to lead to user page
-
-          let author = document.createElement(`a`);
           author.setAttribute(
             `href`,
             `./user/user.html?userId=${user.id}`
           );
-          author.textContent = `Created by: ${user.name}`;
-          let comms = document.createElement(`p`);
-          comms.textContent = `Comments`;
-          comms.classList.add(`comReveal`);
-          postElement.append(name, author, comms, main);
+          nameLink.setAttribute(`href`, `./posts/post.html?post-id=${postId}`)
+          
+          nameLink.append(name)
+          postElement.append(nameLink, author, comms, main);
 
 // link for specific post
 

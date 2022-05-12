@@ -4,7 +4,7 @@ let userId = urlParams.get(`userId`)
 
 let mainWrapper = document.createElement(`div`);
 mainWrapper.classList.add(`mainWrapper`);
-document.querySelector(`body`).prepend(mainWrapper);
+document.querySelector(`header`).after(mainWrapper);
 
 //authors main info card
 
@@ -88,8 +88,8 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
               albums.map(album => {
                   console.log(album)
                   let albumName = document.createElement('a');
-                  albumName.setAttribute(`href`, `#`)
-                  albumName.textContent = album.title
+                  albumName.setAttribute(`href`, `../album/album.html?album-id=${album.id}`)
+                  albumName.textContent = upCase(album.title)
                   albumName.style = `display:block;`
                   albumWrapper.append(albumName)
       

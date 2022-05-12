@@ -37,7 +37,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
 
           let otherPosts = document.createElement('a');
           otherPosts.textContent = `Other posts by the author`
-          otherPosts.setAttribute(`href`, `https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+          otherPosts.setAttribute(`href`, `../allPosts/allPosts.html?userId=${userId}`)
 
 //link for user id to lead to user page
 

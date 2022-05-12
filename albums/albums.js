@@ -22,15 +22,19 @@ fetch(`https://jsonplaceholder.typicode.com/albums`)
         .then(r => r.json())
         .then(author => {
             let authorName = document.createElement(`h4`)
-            authorName.textContent = author.name
+            authorName.textContent = `By: ${author.name}`
             
             fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${album.id}`)
             .then(r => r.json())
             .then(albumPictures => {
-                console.log(albumPictures[0].url)
+                console.log(albumPictures.length)
                 let image = document.createElement(`img`)
+                let picCount = document.createElement(`p`)
+                picCount.textContent = `Album pictures (${albumPictures.length})`
+
                 image.setAttribute(`src`, `${albumPictures[0].url}`)
-                singleAlbum.append(albumName, authorName, image)
+
+                singleAlbum.append(albumName, authorName, image, picCount)
             })
         })
     })

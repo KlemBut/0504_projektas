@@ -17,8 +17,9 @@ fetch(`https://jsonplaceholder.typicode.com/users`)
             console.log(authorPosts.length)
             let postCount = document.createElement(`p`)
             postCount.textContent = `Post count (${authorPosts.length})`
-            authorNameLink.after(postCount)
+            authorNameLink.append(postCount)
         })
+        
     })
 
 })

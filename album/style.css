@@ -1,0 +1,7 @@
+.pswp-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}/*# sourceMappingURL=style.css.map */

@@ -4,8 +4,8 @@ let albumId = urlParams.get(`album-id`)
 
 let picturesDiv = document.createElement('div')
 document.querySelector('body').append(picturesDiv)
-            picturesDiv.id = `gallery--getting-started`
-            picturesDiv.classList.add(`pswp-gallery`, `pswp-gallery--single-column`)
+picturesDiv.id = `gallery--getting-started`
+picturesDiv.classList.add(`pswp-gallery`, `pswp-gallery--single-column`)
 // to get album id for url
 
 fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}`)
@@ -15,7 +15,7 @@ fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}`)
             let albumTitle = document.createElement('h2');
             // let picturesDiv = document.createElement('div')
             albumTitle.innerText = upCase(album.title)
-            document.querySelector('body').append(albumTitle)
+            document.querySelector('body').prepend(albumTitle)
             // document.querySelector('body').append(picturesDiv)
             // picturesDiv.id = `gallery--getting-started`
             // picturesDiv.classList.add(`pswp-gallery`, `pswp-gallery--single-column`)
@@ -41,7 +41,7 @@ fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}`)
                 
 // fetch for photos 
 
-                    fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos?_limit=11`)
+                    fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos`)
                     .then(r => r.json())
                         .then(photos => {
                            photos.map(photo => {
@@ -53,7 +53,7 @@ fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}`)
                                image.setAttribute(`data-pswp-height`, `2500`)
                                image.setAttribute(`data-cropped`, `true`)
                                let img = document.createElement(`img`)
-                               img.setAttribute(`src`, `${photo.url}`)
+                               img.setAttribute(`src`, `${photo.thumbnailUrl}`)
                                
                             picturesDiv.append(image)
                             // document.querySelector(`#gallery--getting-started`).append(image)
@@ -68,9 +68,3 @@ function upCase(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// const lightbox = new PhotoSwipeLightbox({
-//     gallery: '#my-gallery',
-//     children: 'a',
-//   });
-//   lightbox.init();
-          
